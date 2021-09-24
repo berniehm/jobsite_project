@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <!--This is the stlye of the timesheet page-->
+   
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Timesheet Calculator</title>
+
+    <meta name="description" content="">
+    <meta name ="viewport" conctent="width=device-width">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/home.css">
+
+    <style>
+        body {
+            padding-top: 60px;
+            padding-bottom: 40px;
+
+        }
+    </style>
+    <link rel ="stylesheet" href="">
+
+    </head>
+    <body>
+
+        <nav class = "nav">
+
+    <div class="topnav">
+
+        <img src="./images/clock.jpg" alt="clock" class="clock">
+    </div>
+
+   
+    <!--This is the nav bar for the timesheet to allow you to log the time you started the job
+    Staff can also log the time they finished the job
+    Staff can also leave notes -->
+   
+        <div class ="navbar-inner">
+            <div class ="container">
+            <a class ="btn btn-navbar" data-toggle="collaspe" data-target=".nav-collapse">
+                <span class ="icon-bar"></span>
+                <span class ="icon-bar"></span>
+                <span class ="icon-bar"></span>
+                
+            </a>
+            <a class ="brand" href="#"> Log Times</a>
+            <div class = "nav-collapse collapse"></div>
+        </div>
+        </div>
+    </div>
+</nav>
+    <div class =" info">
+        <h1> Time Sheet </h1>
+        <P>
+            Fill in the time you started the job and the time you finished the job and the job that is being completed.
+            Then click submit
+
+        </P>
+        <caption>Insert Times Below:</caption>
+        </div>
+        <a class="item" href="./logout.html"> Logout</a>
+        <div id="centerContainter">
+            <div class="container-fluid">
+                <!--row of colums-->
+                <div class= "row">
+                    <div class="block-left">
+                        <form id ="timeTable">
+                            <table class ="span3 table table-striped">
+                                
+                            <thead>
+                                <tr>
+                                    <th>Start Time</th>
+                                    <th>End Time</th>
+                                    <th>Task Being Done</th>
+                                    <th>Additional Notes</th>
+                                </tr>
+                            </thead>
+                            <tbody id ="hoursBody">
+                                <tr>
+                                    <td><input  class="start" name="start" type="text" placeholder="HH:MM">></td>
+                                    <td><input  class="start" name="end" type="text" placeholder="HH:MM">></td>
+                                    <td class="tastTD"> <input class="taskInput" name="job" type="test" placeholder= "Enter Job"></td>
+                                    <td class="tastTD"> <input class="taskInput" name="notes" type="test" placeholder= "Enter Notes"></td>
+</tr>
+</tbody> 
+ </table>
+ <br/>
+ <div>
+    <button type="button" class ="btn btn-primary" onclick="submitNotes()" id ="SubmitBTN">Submit</button>
+    <button type="button" class ="btn btn-sucess" onclick="addRows()" id ="SubmitBTN">Add Rows</button>
+ </div>
+
+ </form>
+</div>
+
+ <div class="block">
+     <form id="sumTable">
+         <table class ="span4 table table-striped">
+
+         <caption>Sum of your Jobs</caption>
+         <thead>
+             <tr>
+                 <th>Sum of Hours</th>
+                 <th>Job in progress</th>
+                 <th>Notes</th>
+                  </tr>
+         </thead>
+         <tbody id ="hoursTable">
+             <tr>
+             <td>
+                <div class="time"> <span>Hours</span></div>
+                </td>
+                <td>
+                 <div class="jobOut"> <span>Job</span></div>
+                 </td>
+                
+                 <td>
+                    <div class="notesOut">Notes</span></div>
+                    </td>
+                    <tr>
+
+                    </tr>
+                </tbody>
+            </table>
+            <div id="sumTotal">
+                <strong>Total Time: </strong><p id="totTime">0</p><button id="clearOutputTables" class="btn btn-primary" onclick="return false;">Clear</button>
+            </div>
+        </form>
+    </div>
+</div>
+</div> <!-- /container -->
+</div>
+<script src="js/main.js"></script>
+<script src="js/timesheet.js"></script>             
+<script src="js/vendor/bootstrap.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous"></script>
+</body>
+</html>
+
+         
+
+ 
+
+    
