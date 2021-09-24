@@ -1,0 +1,28 @@
+
+<!--
+this is the login page
+-->
+<link rel="stylesheet" href="css/home.css">
+<section class="ui raised segment">
+    <div class="ui grid">
+        <aside class="ui six wide column">
+            <img src="images/logo.jpg" class="ui medium image">
+        </aside>
+        <div class="ui ten wide column fluid form">
+            <div class="ui stacked segment">
+                <form action="/login" method="POST">
+                    <h3 class="ui header">Log-in</h3>
+                    <div class="field">
+                        <label>Email</label> <input placeholder="Email" type="text"
+                                                    name="email">
+                    </div>
+                    <script src="js/main.js"></script>
+                    <div class="field">
+                        <label>Password</label> <input type="password" name="password">
+                    </div>
+                    <button type="button" class ="btn btn-primary" onclick="isLoggedIn()" id ="LoginBTN">login</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
