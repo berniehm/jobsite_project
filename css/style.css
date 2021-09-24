@@ -1,0 +1,9 @@
+input {
+	width: 56px;
+}
+
+.row,  .block-left, .block{
+	display: inline;
+
+	float: left;
+}
