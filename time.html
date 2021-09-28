@@ -27,9 +27,11 @@
 
         <nav class = "nav">
 
-    <div class="topnav">
+    <div class="topnav d-flex align-items-center">
 
-        <img src="./images/clock.jpg" alt="clock" class="clock">
+
+        <img src="./images/clock.jpg" alt="clock" class="clock me-2">
+        <a class ="brand fw-bold" href="#"> Log Times</a>
     </div>
 
    
@@ -45,8 +47,8 @@
                 <span class ="icon-bar"></span>
                 
             </a>
-            <a class ="brand fw-bold" href="#"> Log Times</a>
-            <a class=" btn btn-danger ms-2 item" href="./logout.html"> Logout</a>
+           <h5>Welcome <span id = "active_user"></span> </h5>
+            <button class=" btn btn-danger ms-2 item" id = "logout" > Logout</button>
             <a class=" btn btn-danger ms-2 item" href="./upload.html"> uploadDocument</a>
             <div class = "nav-collapse collapse"></div>
         </div>

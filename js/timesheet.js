@@ -2,6 +2,11 @@
  * There is only one table therefor the element is 0
  *The Function below will allow a user to use the submit button to place the notes and jobs in the below table
  */
+document.getElementById("active_user").innerHTML = localStorage.getItem("active_user");
+
+if(localStorage.getItem("active_user") == null){
+  location.href="login.html";
+}
 
   function submitNotes(){
     let inputs = document.getElementsByTagName("table")[0].querySelectorAll('input')
@@ -49,4 +54,8 @@
 document.getElementById("hoursBody").innerHTML += table_row;
   }
 
-  console.log(localStorage.getItem("name"))
+ document.getElementById("logout").addEventListener("click" ,()=>{
+   localStorage.removeItem("active_user");
+   location.href = "logout.html";
+ })
+

@@ -1,5 +1,5 @@
 /**Allows the registerform take in the atributes for a user 
- * So below we are stating the variables for the reigster form amd setting an event listner 
+ * So below we are stating the variables for the register form amd setting an event listner 
   */
  
 
@@ -18,18 +18,35 @@ document.getElementById("registerform") && document.getElementById("registerform
 /**Creating a variable called users 
  *  Push the attribustes fname,lname,email,password
   */
-  let users = [];
-  users.push({
+ let users ;
+
+ if (localStorage.getItem("users")==null){
+   users = [];
+ }
+ else {
+   users = JSON.parse(localStorage.getItem("users"));
+ }
+
+users.push({
     fname,
     lname,
     email,
     password
 
   })
+
+
 /**Allows the users to be stored in the website local storage
  * also allows the users to go to the page where they can log their time
   */
   localStorage.setItem("users",JSON.stringify(users));
+  localStorage.setItem("active_user", fname);
+
+  fname = "";
+  lname = "";
+  email = "";
+  password ="";
+
   location.href="time.html";
 });
 
@@ -58,6 +75,7 @@ document.getElementById("loginForm") && document.getElementById("loginForm").add
   let user=users.filter(user => user.email == email && user.password == password);
   if(user.length){
     console.log("you are logged in");
+    localStorage.setItem("active_user", user[0].fname);
  location.href="time.html";
 
   }
