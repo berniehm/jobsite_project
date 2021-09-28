@@ -1,0 +1,11 @@
+
+/*This will allow me to style elements on html pages when linked to it*/
+.input {
+	width: 56px;
+}
+
+.row,  .block-left, .block{
+	display: inline;
+
+	float: left;
+}

@@ -1,0 +1,128 @@
+/*This will allow me to style the website when it is linked in the html file */
+.nav {
+    border-bottom: 1px solid black;
+    align-items: center;
+
+}
+
+.menus ol {
+    list-style-type: none;
+    padding-left: 0;
+    glyph-orientation-horizontal: unset;
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    float: left;
+}
+.ol{
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    float: left;
+
+  }
+.rightmenu{
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    float: left;
+
+}
+
+.menu a::after {
+    display: inline-block;
+    color: #000;
+    content:'>';
+    font-size: 80%;
+    font-weight: bold;
+    padding: 0 3px;
+
+}
+
+.nav{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+.topnav {
+    width: 50px;
+    height: 50px;
+    display: block;
+    padding: 8px;
+    background-color: #dddddd;
+
+}
+.topnav img{
+    width: 100%;
+    height: 100%;
+
+
+}
+.brand{
+    text-decoration: none;
+    color:blue;
+    font-size: 1.4rem;
+}
+
+.info{
+    padding: 0 2rem 2rem 2rem;
+}
+#centerContainter{
+    padding: 2rem;
+    text-align: center;
+
+}
+.rightmenu{
+overflow: hidden;
+    background-color: #333;
+  }
+
+.aboutImage {
+    width: 50px;
+    height: 50px;
+    display: block;
+    padding: 8px;
+    background-color: #dddddd;}
+
+.aboutImage{
+    width: 400px;
+    height: auto;
+  }
+ 
+  
+#custom-button{
+    padding: 10px;
+    color : white;
+    background-color: #009578;
+    border: 1px solid #000;
+    border-radius: 5px;
+    cursor:pointer;
+}
+
+#custom-button:hover{
+    background-color: #00b28f;
+
+
+}
+#custom-text{
+    margin-left: 10px;
+    font-family: Arial;
+    color: #aaa;
+}
+
+
+
+
+
