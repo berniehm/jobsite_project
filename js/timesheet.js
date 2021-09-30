@@ -1,6 +1,5 @@
 /**Created a variable called inputs that contains all the inputs of data in the table tag name 
- * There is only one table therefor the element is 0
- *The Function below will allow a user to use the submit button to place the notes and jobs in the below table
+ * 
  */
 document.getElementById("active_user").innerHTML = localStorage.getItem("active_user");
 
@@ -8,54 +7,95 @@ if(localStorage.getItem("active_user") == null){
   location.href="login.html";
 }
 
-  function submitNotes(){
-    let inputs = document.getElementsByTagName("table")[0].querySelectorAll('input')
-    let submit_data = "";
-    let hoursTable = document.getElementById("hoursTable")
-    let start = 0;
-    let sum = 0;
-    for(let data of inputs){
-     /* * The switch will allow the data name to idenify the attributes 
-      * store inputs and declare variables aswell
-      * calucate the hours */
-      switch(data.name){
-        case "start" : console.log("start ",data.value)
-        start = data.value;
-
-        break;
-        case "end" : console.log("end ",data.value)
-        sum = data.value-start;
-        submit_data += `<tr> <td> ${sum} </td>`;
-        start=0;
-        sum=0;
-        break;
-        case "job" : console.log("job ",data.value)
-        submit_data += ` <td> ${data.value}  </td>`;
-        break;
-      case "notes" : console.log("notes ",data.value)
-      submit_data += ` <td> ${data.value}  </td></tr>`;
-        break;
-      }
-    }
-    hoursTable.innerHTML=submit_data;
-
-  }
-
-/**This function will allow the user to add a row to the table*  */
-  function addRows(){
-    
-    let table_row=`                     <tr>
-    <td><input  class="start" name="start" type="text" placeholder="HH:MM">></td>
-    <td><input  class="start" name="end" type="text" placeholder="HH:MM">></td>
-    <td class="tastTD"> <input class="taskInput" name="job" type="test" placeholder= "Enter Job"></td>
-    <td class="tastTD"> <input class="taskInput" name="notes" type="test" placeholder= "Enter Notes"></td>
-</tr>`
-
-document.getElementById("hoursBody").innerHTML += table_row;
-  }
+  
 
  document.getElementById("logout").addEventListener("click" ,()=>{
    localStorage.removeItem("active_user");
    location.href = "logout.html";
  })
 
+/**add Job details in to the table */
+
+/**create jobs class */
+class Jobs{
+  constructor(start,end,details,notes){
+    this.start = start;
+    this.end = end ;
+    this.details = details;
+    this.notes = notes;
+  }
+}
+
+/**UI Class 
+ * store relates to local storage
+*/
+class UI{
+  static displayJobs(){
+    const jobs = Store.getJobs();
+    jobs.forEach(job => UI.addJobsToList(job))
+  }
+
+  static addJobsToList(job){
+    const list = document.getElementById("jobs_list");
+    const row = document.createElement("tr");
+
+    row.innerHTML=`
+    <td> ${job.start} </td>
+    <td> ${job.end} </td>
+    <td> ${job.end - job.start} </td>
+    <td> ${job.details} </td>
+    <td> ${job.notes} </td>
+    
+    `;
+  console.log(row);
+
+    list.appendChild(row);
+  }
+}
+
+/**Store Class */
+class Store {
+  static getJobs(){
+    let jobs;
+    if (localStorage.getItem("jobs") === null){
+      jobs =[];
+    }
+    else {
+      jobs=JSON.parse(localStorage.getItem("jobs"))
+    }
+
+    return jobs;
+  }
+/**To add the job into the jobs array */
+  static addJobs(job){
+    const jobs = Store.getJobs();
+    jobs.push(job);
+    localStorage.setItem("jobs",JSON.stringify(jobs));
+  }
+}
+
+
+/**event to display jobs */
+document.addEventListener("DOMContentLoaded" , UI.displayJobs);
+
+
+document.getElementById("user-form").addEventListener("submit" ,(e)=>{
+  e.preventDefault()
+  const start = document.getElementById("start").value;
+  const end = document.getElementById("end").value;
+  const details = document.getElementById("details").value;
+  const notes = document.getElementById("notes").value;
+
+  if (start == "" || end == "" || details == "" || notes == "" )
+  {
+    console.log("all columns are required")
+  }
+  else{
+   const job = new Jobs(start,end,details,notes);
+
+   UI.addJobsToList(job);
+
+   Store.addJobs(job);
+  }
+  
+})
