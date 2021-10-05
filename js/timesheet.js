@@ -4,7 +4,7 @@
 document.getElementById("active_user").innerHTML = localStorage.getItem("active_user");
 
 if(localStorage.getItem("active_user") == null){
-  location.href="login.html";
+  //location.href="login.html";
 }
 
   

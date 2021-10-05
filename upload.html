@@ -24,7 +24,8 @@ Any staff that are signed up can login and access these files if necessary-->
   </div>
 </form></div>
 
-     <!--This will allow the cosument to be uploaded to the website-->
+     <!--This will allow the document to be uploaded to the website
+    using the actual path of the file the 0 is there because its only one file -->
  <script>
    document.getElementById("real-file").addEventListener("change",(e)=>{
      let doc_path =URL.createObjectURL(e.target.files[0]);
@@ -36,7 +37,13 @@ Any staff that are signed up can login and access these files if necessary-->
   
   
  </script>
+
  <a class = "btn btn-primary mt-2" href="./logout.html"> Logout</a>
  <a class = "btn btn-primary mt-2" href="./index.html"> Home</a>
+
+  
+  
+ 
+
 </body>
 </html>
