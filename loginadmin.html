@@ -39,11 +39,11 @@
             </div>
         </div>
         <script>
-           /**const validation = async (token) => {
+           const validation = async (token) => {
   const status = await axios.get("http://localhost:8080/verify/"+token);
   if(status.validation){
     console.log(status)
-   location.href = "time.html"
+   location.href = "admin.html"
   }else{
     console.log("token is incorrect")
   //  location.href = "login.html";
@@ -57,7 +57,7 @@ if(localStorage.getItem("jobs-data"))
 }else{
   console.log("jobs data not found")
  // location.href = "login.html";
-}**/
+}
         </script>
         <script src="./js/main.js"></script>
         <script>
@@ -67,5 +67,3 @@ if(localStorage.getItem("jobs-data"))
         </script>
 </body>
 </html>
-
-

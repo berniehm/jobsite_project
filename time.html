@@ -10,6 +10,7 @@
 
     <meta name="description" content="">
     <meta name ="viewport" conctent="width=device-width">
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
     <link rel="stylesheet" href="css/home.css">
 
@@ -62,11 +63,11 @@
     <form id= "user-form">
         <div class = "form-group">
             <label for = "starttime">Start Time</label>
-            <input type="text" class = "form-control" id ="start" />
+            <input type="time" class = "form-control" id ="start" />
         </div>
         <div class = "form-group">
             <label for = "endtime">End Time</label>
-            <input type="text" class = "form-control" id ="end" />
+            <input type="time" class = "form-control" id ="end" />
         </div>
         <div class = "form-group">
             <label for = "jobdetails">Description</label>
@@ -83,6 +84,7 @@
     <table class = "table" id ="jobs_table">
         <thead> 
             <tr>
+                <th scope="col">id</th>
                <th scope="col">start</th>
                <th scope="col">end</th>
                <th scope="col">Sum of Hours</th>
@@ -100,6 +102,30 @@
 
 <script src="js/timesheet.js"></script>             
 <script src="js/vendor/bootstrap.min.js"></script>
+<!-- Download table in to a pdf -->
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.22/pdfmake.min.js"></script>
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.4.1/html2canvas.min.js"></script>
+  <script type="text/javascript">
+    document.getElementById("download_report").addEventListener("click", function() {
+/*allows the table to be downloaded in to a pdf by converting it to a data url*/
+        document.getElementById("download_report").style.display = "none" ;
+       
+      html2canvas(document.getElementById('jobs_table'), {
+        onrendered: function(canvas) {
+          var data = canvas.toDataURL();
+          var docDefinition = {
+            content: [{
+              image: data,
+              width: 500
+            }]
+          };
+          pdfMake.createPdf(docDefinition).download("customer-details.pdf");
+        }
+      });
+
+    });
+  </script>
+
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous"></script>
 </body>
 </html>
