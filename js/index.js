@@ -5,10 +5,14 @@ const jwt = require("jsonwebtoken");
 const bodyParser = require("body-parser");
 
 
+
 const app = express();
 
 const port = 8080;
 const uri = "mongodb+srv://job-site:Peak.oil1@cluster0.et3zk.mongodb.net/job-site?retryWrites=true&w=majority";
+
+
+/**connects the website to the mongo db */
 
 mongoose.connect(uri, { useNewUrlParser: true, useUnifiedTopology: true },(err)=>{
     if(!err){
@@ -22,6 +26,7 @@ app.use(express.json());
 
 app.use(express.urlencoded({extended: true}))
 app.use(cors())
+/**create schema for users  */ 
 const userSchema = mongoose.Schema({
     fname :{
         type:String,
@@ -38,7 +43,12 @@ const userSchema = mongoose.Schema({
     password :{
         type:String,
         required:true
+    },
+    role :{
+        type:String,
+        required:true
     }
+
 },{
     timestamps:true
 })
@@ -76,7 +86,7 @@ app.get("/index",(req,res)=>{
 
 app.post("/user/register",async (req,res)=>{
     console.log(req.body)
-    const newUser = new User(req.body);
+    const newUser = new User({...req.body, role:"employee"});
 
     const user = await newUser.save();
 
@@ -91,6 +101,7 @@ app.post("/user/register",async (req,res)=>{
 }
 
 })
+/**the api that allows you to log in  */
 
 app.post("/user/login", async function(req,res){
     const user = await User.findOne(req.body);
@@ -104,6 +115,8 @@ app.post("/user/login", async function(req,res){
     res.send({user:user.fname, token})
 }
 })
+
+/**provides a token for loging in  */
 
 
 app.get("/verify/:token",async (req,res)=>{
@@ -141,10 +154,80 @@ app.post("/job/addJob", async (req,res)=>{
 
 })
 
+/**get the job data */
+app.get("/job/list", async (req,res)=>{
+    const jobs = await Job.find({});
+    if(!jobs){
+        res.send({
+            error:"the job is not stored in the database"
+        })
+    }else{
+        res.send({
+            jobs
+
+        })
+    }
+
+})
+/**deleted the jobs from the database  */
+
+app.delete("/job/:id",async (req,res)=> {
+const job = await Job.findByIdAndRemove(req.params.id);
+if(!job){
+    res.send({
+        error:"the job is not deleted in the database"
+    })
+}else{
+    res.send({
+        job
+
+    })
+}
+ })
+
+ /**Listening at a port 8080 */
+
 app.listen(port,()=>{
     console.log(`This application is listening on ${port}`);
 })
 
- 
+
+/**const newPermission = this.els.newPermission.value.trim();
+if(!newPermission){
+    return;
+
+}
+const updatedPermissons = this.state.permissons;
+updatedPermissons[new permissons]= true;
+this.setState({
+   permissons:updatedPermissons,
+      newPermission: ''
 
 
+})**/
+/**Admin
+ * have to be have the ability to be able to do the following
+ * View reports of  the workers hours 
+ * upload documents to anybodys account
+ * view how many people are using the website
+ * view whether a user is online of offine
+ * also be able to edit people time if necessary 
+ * 
+ * 
+ * 
+ *  async function viewReports(){
+    
+ * 
+
+* async function viewUsers(){
+        
+
+    }
+    *async function uploadDocuments(){
+        const
+    }
+    async function viewStatus(){
+
+    }
+    *
+*/

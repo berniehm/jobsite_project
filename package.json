@@ -21,6 +21,7 @@
     "jsonwebtoken": "^8.5.1",
     "mongodb": "^4.1.2",
     "mongoose": "^6.0.8",
+    "mongoose-role": "^3.0.5",
     "morgan": "^1.10.0",
     "my": "^0.3.3",
     "sql": "^0.78.0",

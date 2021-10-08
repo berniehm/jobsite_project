@@ -10,7 +10,7 @@
     padding-left: 0;
     glyph-orientation-horizontal: unset;
     display: block;
-    color: white;
+    color: #9C27b0;
     text-align: center;
     padding: 14px 16px;
     text-decoration: none;
@@ -21,7 +21,7 @@
     margin: 0;
     padding: 0;
     display: block;
-    color: white;
+    color: #9C27b0;
     text-align: center;
     padding: 14px 16px;
     text-decoration: none;
@@ -33,7 +33,7 @@
     margin: 0;
     padding: 0;
     display: block;
-    color: white;
+    color:#9C27b0;
     text-align: center;
     padding: 14px 16px;
     text-decoration: none;
@@ -72,7 +72,7 @@
 }
 .brand{
     text-decoration: none;
-    color:blue;
+    color:#771388;
     font-size: 1.4rem;
 }
 
@@ -86,7 +86,7 @@
 }
 .rightmenu{
 overflow: hidden;
-    background-color: #333;
+    background-color: #9C27b0;;
   }
 
 .aboutImage {
@@ -94,7 +94,7 @@ overflow: hidden;
     height: 50px;
     display: block;
     padding: 8px;
-    background-color: #dddddd;}
+    background-color: #9C27b0;;}
 
 .aboutImage{
     width: 400px;
@@ -313,8 +313,8 @@ overflow: hidden;
     outline: none;
     background: #9C27b0;
     border-radius: 0 30px 30px 0;
-    color: #fff;
-    cursor: pointer;
+    color:#9C27b0;
+  cursor: pointer;
 }
 #main #header #logout
 {
@@ -327,8 +327,8 @@ overflow: hidden;
     background: #9C27b0;
     font-size: 18px;
     border-radius: 30px;
-    color: #fff;
-    cursor: pointer;
+    color:#9C27b0;
+   cursor: pointer;
 }
 /* analytics */
 #analytics

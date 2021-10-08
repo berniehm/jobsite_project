@@ -12,6 +12,7 @@ document.getElementById("registerform") && document.getElementById("registerform
   let email=document.getElementById("email").value;
   let password=document.getElementById("password").value;
   
+  
 const newUser = {fname,lname,email,password};
 
   console.log(fname);
